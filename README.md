@@ -374,14 +374,4 @@ doc_ai_backend/
 └── README.md
 ```
 
----
-
-## 🤝 Contact
-
-**Deployed API**: `http://[your-ec2-public-ip]:8000/docs`
-
-For questions or feedback, please reach out.
-
----
-
 **Built with attention to production-ready patterns, scalability, and maintainability.**

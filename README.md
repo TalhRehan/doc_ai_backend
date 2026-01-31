@@ -5,7 +5,7 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-green.svg)](https://fastapi.tiangolo.com/)
 [![AWS](https://img.shields.io/badge/Deployed-AWS%20EC2-orange.svg)](https://aws.amazon.com/ec2/)
 
-**Live API**: | [API Docs](http://13.51.194.236:8080/docs)
+**Live API** 'http://13.51.194.236:8080/docs' : | [API Docs](http://13.51.194.236:8080/docs)
 
 ---
 

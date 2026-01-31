@@ -1,7 +1,10 @@
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
 from fastapi import FastAPI
 from app.db.base import Base
 from app.db.session import engine
 from app.api.routes import router
+
 
 def create_app() -> FastAPI:
     # Create and configure the FastAPI application instance
@@ -14,8 +17,9 @@ def create_app() -> FastAPI:
     # Register all API routes with the FastAPI application
     app.include_router(router)
     
-    # Return the fully configured application instance
+    
     return app
+
 
 # Initialize the FastAPI application for ASGI servers 
 app = create_app()

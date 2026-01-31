@@ -3,6 +3,7 @@ import fitz  # PyMuPDF
 from PIL import Image
 import pytesseract
 
+
 class IngestionAgent:
 
     def extract_text(self, file_path: str, file_type: str) -> str:
@@ -36,7 +37,30 @@ class IngestionAgent:
         return self._clean_text(text)
 
     def _clean_text(self, text: str) -> str:
-        # Basic text normalization
+        """
+        Aggressive text cleaning for better chunking and display
+        """
+        import re
+
+        # Remove null characters
         text = text.replace("\x00", " ")
-        text = "\n".join(line.strip() for line in text.splitlines() if line.strip())
+
+        # Fix hyphenated words broken across lines: "convers-\nation" → "conversation"
+        text = re.sub(r"(\w)-\n(\w)", r"\1\2", text)
+
+        # Join lines within paragraphs: "word1\nword2" → "word1 word2"
+        text = re.sub(r"(?<!\n)\n(?!\n)", " ", text)
+
+        # Replace multiple newlines (paragraph breaks) with double newline
+        text = re.sub(r"\n{2,}", "\n\n", text)
+
+        # Replace tabs with spaces
+        text = text.replace("\t", " ")
+
+        # Normalize multiple spaces to single space
+        text = re.sub(r" {2,}", " ", text)
+
+        # Fix common PDF artifacts (soft hyphens)
+        text = re.sub(r"[­\u00ad]", "", text)
+
         return text.strip()

@@ -5,7 +5,7 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-green.svg)](https://fastapi.tiangolo.com/)
 [![AWS](https://img.shields.io/badge/Deployed-AWS%20EC2-orange.svg)](https://aws.amazon.com/ec2/)
 
-**Live API**: `http://[your-ec2-public-ip]:8000` | [API Docs](http://[your-ec2-public-ip]:8000/docs)
+**Live API**: `http://[your-ec2-public-ip]:8000` | [API Docs](http://13.51.194.236:8080/docs)
 
 ---
 
